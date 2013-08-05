@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        .container {
+            margin: auto;
+            width: 90%;
+        }
+
+        .left {
+            float: left;
+            width: 75%;
+            border: 1px solid red;
+        }
+
+        .right {
+            float: right;
+            width: 23%;
+            border: 1px
+            solid blue;
+        }
+
+        .right form {
+            margin: 5px;
+        }
+
+        #widget_code {
+            width: 95%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+    <div class='left'>
+        <!--<a id="auto_enrolment"-->
+           <!--class="mas-widget"-->
+           <!--target="_blank"-->
+           <!--href="http://www.moneyadviceservice.org.uk"-->
+           <!--data-width="100%">-->
+            <!--Universal Credit Timeline-->
+        <!--</a>-->
+    </div>
+    <div class='right'>
+        <form class="settings">
+            <section class="page">
+                <h4>Page settings</h4>
+                <div>
+                    <label for="container_width">Site width:</label>
+                    <input type="text" id="container_width" value="90%" />
+                </div>
+                <div>
+                    <label for="left_width">Left width:</label>
+                    <input type="text" id="left_width" value="75%" />
+                </div>
+                <div>
+                    <label for="right_width">Right width:</label>
+                    <input type="text" id="right_width" value="23%" />
+                </div>
+            </section>
+            <section class="tool">
+                <h4>Tool settings</h4>
+                <div>
+                    <label for="tool_id">Tool:</label>
+                    <select id="tool_id"><option>1</option></select>
+                </div>
+                <div>
+                    <label for="tool_width">Tool width:</label>
+                    <input type="text" id="tool_width" value="" />
+                </div>
+            </section>
+            <div>
+                <input type="submit" id="update" value="Update" />
+            </div>
+        </form>
+
+        <h3>Widget code:</h3>
+        <textarea id="widget_code" readonly="readonly"></textarea>
+    </div>
+</div>
+
+<script class='application_scripts' src="/assets/syndication/tools.js"></script>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+    (function(window, $) {
+        'use strict';
+
+        var syndication, removeWidget, createWidget, update, initialiseToolsDropdown;
+        var currentToolId, currentToolWidth;
+
+        syndication = new window.PartnerMAS.ToolSyndication();
+
+        removeWidget = function() {
+            $('.mas-widget-container').remove();
+        };
+
+        createWidget = function (toolId, toolWidth) {
+            var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="http://www.moneyadviceservice.org.uk"';
+            if ('' !== toolWidth) {
+                aElement += ' data-width="' + toolWidth + '"';
+            }
+            aElement += '></a>';
+
+            $('.left').append(aElement);
+            syndication.renderWidgets()
+
+            $('#widget_code').text(aElement);
+        };
+
+        update = function() {
+            $('.settings .page :text').each(function() {
+                var container_class = $(this).attr('id').replace('_width', '');
+                $('.' + container_class).css('width', $(this).val());
+            });
+
+
+        };
+
+        initialiseToolsDropdown = function() {
+            var select = $('.settings .tool #tool_id');
+            select.find('option').remove();
+            $.each(masConfig.toolConfig, function(toolId, toolConfig) {
+                if ('default' !== toolId) {
+                    select.append('<option value="' + toolId + '">' + toolId + '</option>');
+                }
+            });
+        };
+
+        $('.settings').on('submit', function(e) {
+            var selectedToolId = $(this).find('#tool_id').val(),
+                toolWidth = $('.settings .tool #tool_width').val();
+
+            e.preventDefault();
+
+            update();
+
+            if ((selectedToolId !== currentToolId) ||
+                (toolWidth !== currentToolWidth)) {
+                currentToolId = selectedToolId;
+                currentToolWidth = toolWidth;
+
+                removeWidget();
+                createWidget(selectedToolId, toolWidth);
+            }
+        });
+
+        $(function() {
+            initialiseToolsDropdown();
+        });
+    })(this, jQuery);
+</script>
+</body>
+</html>
