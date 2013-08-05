@@ -15,20 +15,21 @@
 
         .left {
             float: left;
-            width: 75%;
+            width: 70%;
             min-width: 360px;
             border: 1px solid red;
         }
 
         .right {
             float: left;
-            width: 23%;
+            width: 28%;
+            min-width: 235px;
             border: 1px
             solid blue;
         }
 
         .right form {
-            padding: 5px;
+            margin: 5px;
         }
 
         #widget_code {
@@ -71,11 +72,11 @@
                 </div>
                 <div>
                     <label for="left_width">Left width (Min 360px):</label>
-                    <input type="text" id="left_width" value="75%" />
+                    <input type="text" id="left_width" value="70%" />
                 </div>
                 <div>
                     <label for="right_width">Right width:</label>
-                    <input type="text" id="right_width" value="23%" />
+                    <input type="text" id="right_width" value="28%" />
                 </div>
             </section>
             <section class="tool">
@@ -95,7 +96,9 @@
         </form>
 
         <h3>Widget code:</h3>
-        <textarea id="widget_code" readonly="readonly"></textarea>
+        <form class="widget">
+            <textarea id="widget_code" readonly="readonly"></textarea>
+        </form?
     </div>
 </div>
 
