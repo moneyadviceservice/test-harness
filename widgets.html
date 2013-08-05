@@ -16,18 +16,19 @@
         .left {
             float: left;
             width: 75%;
+            min-width: 360px;
             border: 1px solid red;
         }
 
         .right {
-            float: right;
+            float: left;
             width: 23%;
             border: 1px
             solid blue;
         }
 
         .right form {
-            margin: 5px;
+            padding: 5px;
         }
 
         #widget_code {
@@ -69,7 +70,7 @@
                     <input type="text" id="container_width" value="90%" />
                 </div>
                 <div>
-                    <label for="left_width">Left width:</label>
+                    <label for="left_width">Left width (Min 360px):</label>
                     <input type="text" id="left_width" value="75%" />
                 </div>
                 <div>
