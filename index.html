@@ -1,3 +1,74 @@
+---
+widgets:
+  - id: back_to_school
+    name: "Back to School Cost Planner"
+    url: "/en/tools/back-to-school-cost-planner"
+    lang: en
+  - id: divorce_and_separation
+    name: "Divorce & separation calculator"
+    url: "/en/tools/divorce-and-separation-calculator"
+    lang: en
+  - id: baby
+    name: "Baby costs calculator"
+    url: "/en/tools/baby-costs-calculator"
+    lang: en
+  - id: baby
+    name: "Baby costs calculator"
+    url: "/cy/tools/cyfrifiannell-costau-babi"
+    lang: cy
+  - id: universal_credit_timeline
+    name: "Universal Credit Timeline"
+    url: "/en/tools/universal-credit-timeline"
+    lang: en
+  - id: universal_credit_timeline
+    name: "Universal Credit Timeline"
+    url: "/cy/tools/llinell-amser-credyd-cyffredinol"
+    lang: cy
+  - id: workplace_pensions
+    name: "Workplace Pensions Contributions Calculator"
+    url: "/en/tools/workplace-pension-contribution-calculator"
+    lang: en
+  - id: workplace_pensions
+    name: "Cyfrifiannell cyfraniadau pensiwn gweithle"
+    url: "/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle"
+    lang: cy
+  - id: smartmover
+    name: "Smart mover calculator"
+    url: "/en/tools/smart-mover-calculator"
+    lang: en
+  - id: smartmover
+    name: "Cyfrifiannell camau craff wrth symud tŷ"
+    url: "/cy/tools/cyfrifiannell-ymfudwr-darbodus"
+    lang: cy
+  - id: summer_planner
+    name: "Summer planner"
+    url: "/en/tools/big-summer-planner"
+    lang: en
+  - id: summer_planner
+    name: "Cynlluniwr mawr yr haf"
+    url: "/cy/tools/cynlluniwr-mawr-yr-haf"
+    lang: cy
+  - id: how_much_to_save
+    name: "How much should you save for your retirement?"
+    url: "/en/tools/estimate-what-you-need-to-save-for-retirement"
+    lang: en
+  - id: how_much_to_save
+    name: "Faint ddylech chi ei gynilo ar gyfer eich ymddeoliad?"
+    url: "/cy/tools/amcangyfrif-faint-mae-angen-i-chi-ei-gynilo-cyn-ymddeol"
+    lang: cy
+  - id: auto_enrolment
+    name: "Find out what savings ito a workplace pension means for your financial situation"
+    url: "/en/tools/workplace-pension-advice-tool"
+    lang: en
+  - id: budget_planner
+    name: "Budget Planner"
+    url: "/en/tools/budget-planner"
+    lang: en
+  - id: budget_planner
+    name: "Cynllunydd Cyllideb"
+    url: "/en/tools/cynllunydd-cyllideb"
+    lang: cy
+---
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
@@ -87,270 +158,20 @@
     <hr>
 
     <div class="row-fluid">
+     {% for widget in page.widgets %}
         <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="back_to_school"
-                   class="mas-widget"
-                   target="_blank"
-                   href="/en/tools/back-to-school-cost-planner">
-                    Back to School Cost Planner
-                </a>
-            </p>
+          <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
+          <p>
+            <a id="{{widget.id}}"
+              class="mas-widget"
+              target="_blank"
+              lang="{{widget.lang}}"
+              href="{{widget.url}}">{{widget.name}}</a>
+          </p>
         </div>
 
         <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="divorce_and_separation"
-                   class="mas-widget"
-                   target="_blank"
-                   href="/en/tools/divorce-and-separation-calculator">
-                    Divorce & separation calculator
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="baby"
-                   class="mas-widget"
-                   target="_blank"
-                   href="/en/tools/baby-costs-calculator">
-                    Baby costs calculator
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="baby"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="cy"
-                   href="/cy/tools/cyfrifiannell-costau-babi">
-                    Baby costs calculator
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="universal_credit_timeline"
-                   class="mas-widget"
-                   target="_blank"
-                   href="/en/tools/universal-credit-timeline">
-                    Universal Credit Timeline
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="universal_credit_timeline"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="cy"
-                   href="/cy/tools/llinell-amser-credyd-cyffredinol">
-                    Universal Credit Timeline
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="workplace_pensions"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="en"
-                   href="/en/tools/workplace-pension-contribution-calculator">
-                    Workplace Pensions Contributions Calculator
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="workplace_pensions"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="cy"
-                   href="/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle">
-                    Cyfrifiannell cyfraniadau pensiwn gweithle
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="smartmover"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="en"
-                   href="/en/tools/smart-mover-calculator">
-                    Smart mover calculator
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="smartmover"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="cy"
-                   href="/cy/tools/cyfrifiannell-ymfudwr-darbodus">
-                    Cyfrifiannell camau craff wrth symud tŷ
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="summer_planner"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="en"
-                   href="/en/tools/big-summer-planner">
-                    Summer planner
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="summer_planner"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="cy"
-                   href="/cy/tools/cynlluniwr-mawr-yr-haf">
-                    Cynlluniwr mawr yr haf
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="how_much_to_save"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="en"
-                   href="/en/tools/estimate-what-you-need-to-save-for-retirement">
-                    How much should you save for your retirement?
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-
-            <p>
-                <a id="how_much_to_save"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="cy"
-                   href="/cy/tools/amcangyfrif-faint-mae-angen-i-chi-ei-gynilo-cyn-ymddeol">
-                    Faint ddylech chi ei gynilo ar gyfer eich ymddeoliad?
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-            <p>
-                <a id="auto_enrolment"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="en"
-                   href="/en/tools/workplace-pension-advice-tool">
-                    Find out what savings ito a workplace pension means for your financial situation
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-            <p>
-                <a id="budget_planner"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="en"
-                   href="/en/tools/budget-planner">
-                    Budget Planner
-                </a>
-            </p>
-        </div>
-
-        <hr>
-
-        <div class="span 12">
-            <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
-            <p>
-                <a id="budget_planner"
-                   class="mas-widget"
-                   target="_blank"
-                   lang="cy"
-                   href="/en/tools/cynllunydd-cyllideb">
-                    Cynllunydd Cyllideb
-                </a>
-            </p>
-        </div>
-
-
+      {% endfor %}
     </div>
 
     <script src="https://www.moneyadviceservice.org.uk/static/tools/config.js"></script>
