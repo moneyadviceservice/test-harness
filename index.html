@@ -2,106 +2,48 @@
 widgets:
   - id: back_to_school
     name: "Back to School Cost Planner"
-    url: "/en/tools/back-to-school-cost-planner"
-    lang: en
   - id: divorce_and_separation
     name: "Divorce & separation calculator"
-    url: "/en/tools/divorce-and-separation-calculator"
-    lang: en
   - id: baby
     name: "Baby costs calculator"
-    url: "/en/tools/baby-costs-calculator"
-    lang: en
-  - id: baby
+  - id: baby_cy
     name: "Baby costs calculator"
-    url: "/cy/tools/cyfrifiannell-costau-babi"
-    lang: cy
   - id: universal_credit_timeline
     name: "Universal Credit Timeline"
-    url: "/en/tools/universal-credit-timeline"
-    lang: en
-  - id: universal_credit_timeline
-    name: "Universal Credit Timeline"
-    url: "/cy/tools/llinell-amser-credyd-cyffredinol"
-    lang: cy
+  - id: universal_credit_timeline_cy
+    name: "Universal Credit Timeline (Welsh)"
   - id: workplace_pensions
     name: "Workplace Pensions Contributions Calculator"
-    url: "/en/tools/workplace-pension-contribution-calculator"
-    lang: en
-  - id: workplace_pensions
-    name: "Cyfrifiannell cyfraniadau pensiwn gweithle"
-    url: "/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle"
-    lang: cy
+  - id: workplace_pensions_cy
+    name: "Workplace Pensions Contributions Calculator (Welsh)"
   - id: smartmover
     name: "Smart mover calculator"
-    url: "/en/tools/smart-mover-calculator"
-    lang: en
-  - id: smartmover
-    name: "Cyfrifiannell camau craff wrth symud tŷ"
-    url: "/cy/tools/cyfrifiannell-ymfudwr-darbodus"
-    lang: cy
+  - id: smartmover_cy
+    name: "Smart mover calculator (Welsh)"
   - id: summer_planner
     name: "Summer planner"
-    url: "/en/tools/big-summer-planner"
-    lang: en
-  - id: summer_planner
-    name: "Cynlluniwr mawr yr haf"
-    url: "/cy/tools/cynlluniwr-mawr-yr-haf"
-    lang: cy
+  - id: summer_planner_cy
+    name: "Summer planner (Welsh)"
   - id: how_much_to_save
     name: "How much should you save for your retirement?"
-    url: "/en/tools/estimate-what-you-need-to-save-for-retirement"
-    lang: en
-  - id: how_much_to_save
-    name: "Faint ddylech chi ei gynilo ar gyfer eich ymddeoliad?"
-    url: "/cy/tools/amcangyfrif-faint-mae-angen-i-chi-ei-gynilo-cyn-ymddeol"
-    lang: cy
+  - id: how_much_to_save_cy
+    name: "How much should you save for your retirement? (Welsh)"
   - id: auto_enrolment
     name: "Find out what savings ito a workplace pension means for your financial situation"
-    url: "/en/tools/workplace-pension-advice-tool"
-    lang: en
   - id: budget_planner
     name: "Budget Planner"
-    url: "/en/tools/budget-planner"
-    lang: en
-  - id: budget_planner
-    name: "Cynllunydd Cyllideb"
-    url: "/cy/tools/cynllunydd-cyllideb"
-    lang: cy
+  - id: budget_planner_cy
+    name: "Budget Planner (Welsh)"
   - id: mortgage_calculator
     name: "Mortgage Calculator"
-    url: "/en/tools/mortgage-calculator"
-    lang: en
-  - id: mortgage_calculator
-    name: "Cyfrifiannell Morgais"
-    url: "/cy/tools/cyfrifiannell-morgais"
-    lang: cy
+  - id: mortgage_calculator_cy
+    name: "Mortgage Calculator (Welsh)"
+  - id: stamp_duty
+    name: "Stamp Duty Calculator"
+  - id: stamp_duty_cy
+    name: "Stamp Duty Calculator (Welsh)"
 ---
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Super-Supermarket</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="./css/application.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="./ico/favicon.png">
-</head>
-
-<body>
+{% include header.html %}
 
 <div class="container-narrow">
     <div class="masthead">
@@ -114,42 +56,21 @@ widgets:
 
     <hr>
 
-    <div class="jumbotron">
-        <h1>Money advice section</h1>
-
-        <p class="lead">Save money.</p>
-    </div>
-
-    <hr>
-
     <div class="row-fluid">
-     {% for widget in page.widgets %}
-        <div class="span 12">
-          <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
+      <div class="span 12">
+         {% for widget in page.widgets %}
           <p>
-            <a id="{{widget.id}}"
-              class="mas-widget"
-              target="_blank"
-              lang="{{widget.lang}}"
-              href="{{widget.url}}">{{widget.name}}</a>
+            <a class="mas-widget-nav" href="/widgets/{{widget.id}}.html">{{widget.name}}</a>
           </p>
-        </div>
-
-        <hr>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
-
-    <script src="https://www.moneyadviceservice.org.uk/static/tools/config.js"></script>
-
-    <script class='application_scripts' src="https://www.moneyadviceservice.org.uk/assets/syndication/tools.js"></script>
 
     <hr>
 
     <div class="footer">
         <p>&copy; Super-supermarket 2013.</p>
     </div>
-
 </div>
 
-</body>
-</html>
+{% include footer.html %}
