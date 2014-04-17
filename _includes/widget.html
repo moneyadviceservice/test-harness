@@ -6,7 +6,11 @@
         class="mas-widget"
         target="_blank"
         lang="{{page.widget.lang}}"
-        href="{{page.widget.url}}">{{widget.name}}</a>
+        href="{{page.widget.url}}"
+        {% if page.widget.width' %}
+          data-width="{{page.widget.width}}"
+        {% endif %}
+        >{{widget.name}}</a>
     </p>
   </div>
 </div>
