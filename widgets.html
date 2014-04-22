@@ -141,5 +141,23 @@
         });
     })(this, jQuery);
 </script>
+  <script type="text/javascript">
+    function handleMASResizeMessage(event) {
+      if (typeof(event.data) === "string") {
+        var parts = event.data.split('-');
+        var prefix = parts[0];
+        var height = parseInt(parts[1]);
+        if (prefix === 'MASRESIZE') {
+          var iframe = document.getElementsByClassName("mas-widget-iframe")[0];
+          iframe.style.height = height + 'px';
+        }
+      }
+    }
+    if (window.addEventListener) {
+      addEventListener("message", handleMASResizeMessage, false);
+    } else {
+      attachEvent("onmessage", handleMASResizeMessage);
+    }
+  </script>
 </body>
 </html>
