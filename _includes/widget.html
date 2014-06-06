@@ -2,6 +2,10 @@
   <div class="span 12">
     <noscript><p>You have javascript turned off. Please turn javascript on to see the tools in action.</p></noscript>
     <p>
+      {% if page.widget.auto_resize' %}
+        <script type="text/javascript" src="https://www.moneyadviceservice.org.uk/assets/syndication/resizer.js"><\/script>
+      {% endif %}
+
       <a id="{{page.widget.id}}"
         class="mas-widget"
         target="_blank"
@@ -11,10 +15,6 @@
           data-width="{{page.widget.width}}"
         {% endif %}
         >{{widget.name}}</a>
-
-        {% if page.widget.auto_resize' %}
-          <script type="text/javascript" src="https://www.moneyadviceservice.org.uk/assets/syndication/resizer.js"><\/script>
-        {% endif %}
     </p>
   </div>
 </div>
