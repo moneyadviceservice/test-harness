@@ -75,7 +75,7 @@
     </div>
 </div>
 
-<script class='application_scripts' src="https://www.moneyadviceservice.org.uk/assets/syndication/tools.js"></script>
+<script class='application_scripts' src="http://public-website.dev/assets/syndication/tools.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
     (function(window, $) {
@@ -91,7 +91,8 @@
         };
 
         createWidget = function (toolId, toolWidth, autoResize) {
-            var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="http://www.moneyadviceservice.org.uk"';
+//            var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="http://www.moneyadviceservice.org.uk"';
+            var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="http://public-website.dev"';
             if ('' !== toolWidth) {
                 aElement += ' data-width="' + toolWidth + '"';
             }
