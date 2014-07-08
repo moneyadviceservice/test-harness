@@ -58,10 +58,6 @@
                     <label for="tool_width">Tool width:</label>
                     <input type="text" id="tool_width" value="" />
                 </div>
-                <div>
-                    <label for="tool_auto_resizes">Tool auto resizes:</label>
-                    <input type="checkbox" id="tool_auto_resizes" value="1" />
-                </div>
             </section>
             <div>
                 <input type="submit" id="update" value="Update" />
@@ -90,16 +86,12 @@
             $('.mas-widget-container').remove();
         };
 
-        createWidget = function (toolId, toolWidth, autoResize) {
+        createWidget = function (toolId, toolWidth) {
             var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="http://www.moneyadviceservice.org.uk"';
             if ('' !== toolWidth) {
                 aElement += ' data-width="' + toolWidth + '"';
             }
             aElement += '></a>';
-
-            if (autoResize) {
-              aElement += '<script type="text/javascript" src="https://www.moneyadviceservice.org.uk/assets/syndication/resizer.js"><\/script>';
-            }
 
             $('.left').append(aElement);
             syndication.renderWidgets()
@@ -111,8 +103,6 @@
                 var container_class = $(this).attr('id').replace('_width', '');
                 $('.' + container_class).css('width', $(this).val());
             });
-
-
         };
 
         initialiseToolsDropdown = function() {
@@ -127,8 +117,7 @@
 
         $('.settings').on('submit', function(e) {
             var selectedToolId = $(this).find('#tool_id').val(),
-                toolWidth = $('.settings .tool #tool_width').val(),
-                autoResize = $('#tool_auto_resizes').prop('checked');
+                toolWidth = $('.settings .tool #tool_width').val();
 
             e.preventDefault();
 
@@ -140,7 +129,7 @@
                 currentToolWidth = toolWidth;
 
                 removeWidget();
-                createWidget(selectedToolId, toolWidth, autoResize);
+                createWidget(selectedToolId, toolWidth);
             }
         });
 
