@@ -17,7 +17,9 @@
     <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="./ico/favicon.png">
 
-    <script src="{{site.public_website_url}}/static/tools/config.js"></script>
+    {% if site.development == true %}
+      {% include development.html %}
+    {% endif %}
     <script class='application_scripts' src="{{site.public_website_url}}/assets/syndication/tools.js"></script>
 </head>
 
