@@ -9,4 +9,5 @@ How do I run the test harness locally?
 
 1. `bundle install`
 2. Modify `public_website_url` in `_config.yml` to point to your local server
-3. Run `bundle exec jekyll serve --watch`
+3. Modify `syndicated_tool_request?` to always return true in public_website
+4. Run `bundle exec jekyll serve --watch`
