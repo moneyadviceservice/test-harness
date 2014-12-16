@@ -73,6 +73,10 @@
     </div>
 </div>
 
+{% if site.development == true %}
+  {% include development.html %}
+{% endif %}
+
 <script class='application_scripts' src="{{site.public_website_url}}/assets/syndication/tools.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
