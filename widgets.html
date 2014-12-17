@@ -60,6 +60,14 @@
                     <label for="tool_width">Tool width:</label>
                     <input type="text" id="tool_width" value="" />
                 </div>
+                <div>
+                    <label for="tool_host_url">Tool host:</label>
+                    <input type="text" id="tool_host_url" value="{{site.public_website_url}}" />
+                    <p>Use "Tool host" to serve the tool itself from an
+                      alternative host, for example from the QA server. Note
+                      this does not override the host that the
+                      <code>syndication/tools.js</code> script is loaded from.</p>
+                </div>
             </section>
             <div>
                 <input type="submit" id="update" value="Update" />
@@ -123,9 +131,16 @@
 
         $('.settings').on('submit', function(e) {
             var selectedToolId = $(this).find('#tool_id').val(),
-                toolWidth = $('.settings .tool #tool_width').val();
+                toolWidth = $('.settings .tool #tool_width').val(),
+                toolHostUrl = $('.settings .tool #tool_host_url').val();
 
             e.preventDefault();
+
+            if ((toolHostUrl !== '') &&
+                (toolHostUrl !== '{{site.public_website_url}}')) {
+                window.toolsConfig = window.toolsConfig || {};
+                window.toolsConfig['syndication_url'] = toolHostUrl;
+            }
 
             update();
 
