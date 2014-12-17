@@ -17,8 +17,8 @@
     <div class="masthead">
         <ul class="nav nav-pills pull-right">
             <li><a href="./index.html">Home</a></li>
-            <li><a class="active" href="./widgets.html">Widget</a></li>
-            <li><a href="./widgets-qa.html">Widget (QA view)</a></li>
+            <li><a href="./widgets.html">Widget</a></li>
+            <li><a class="active" href="./widgets-qa.html">Widget (QA view)</a></li>
         </ul>
         <h3 class="muted">Money Advice Service</h3>
     </div>
@@ -74,13 +74,15 @@
     </div>
 </div>
 
-{% if site.development == true %}
-  {% include development.html %}
-{% endif %}
-
-<script class='application_scripts' src="{{site.public_website_url}}/assets/syndication/tools.js"></script>
+<script class='application_scripts' src="{{site.qa_website_url}}/assets/syndication/tools.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
+
+    // This forces tools.js to load the syndicated tool via the QA partner tools site
+    window.toolsConfig = {
+        'syndication_url': '{{site.qa_partner_tools_url}}'
+    };
+
     (function(window, $) {
         'use strict';
 
@@ -94,7 +96,7 @@
         };
 
         createWidget = function (toolId, toolWidth) {
-            var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="{{site.public_website_url}}"';
+            var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="{{site.qa_website_url}}"';
             if ('' !== toolWidth) {
                 aElement += ' data-width="' + toolWidth + '"';
             }
