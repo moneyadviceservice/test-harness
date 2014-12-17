@@ -17,7 +17,7 @@ var widgetTestHarnessInit = function(window, $, websiteUrl) {
         }
         aElement += '></a>';
 
-        $('.left').append(aElement);
+        $('.js-test-harness-widget-container').append(aElement);
         syndication.renderWidgets()
         $('#widget_code').text(aElement);
     };
