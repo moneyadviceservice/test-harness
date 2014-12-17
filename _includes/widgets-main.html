@@ -1,0 +1,39 @@
+<div class='left' style="overflow: hidden;"></div>
+<div class='right'>
+    <form class="settings">
+        <section class="page">
+            <h3>Page settings</h3>
+            <div>
+                <label for="container_width">Site width:</label>
+                <input type="text" id="container_width" value="90%" />
+            </div>
+            <div>
+                <label for="left_width">Left width (Min 360px):</label>
+                <input type="text" id="left_width" value="70%" />
+            </div>
+            <div>
+                <label for="right_width">Right width:</label>
+                <input type="text" id="right_width" value="28%" />
+            </div>
+        </section>
+        <section class="tool">
+            <h4>Tool settings</h4>
+            <div>
+                <label for="tool_id">Tool:</label>
+                <select id="tool_id"><option>1</option></select>
+            </div>
+            <div>
+                <label for="tool_width">Tool width:</label>
+                <input type="text" id="tool_width" value="" />
+            </div>
+        </section>
+        <div>
+            <input type="submit" id="update" value="Update" />
+        </div>
+    </form>
+
+    <h3>Widget code:</h3>
+    <form class="widget">
+        <textarea id="widget_code" readonly="readonly"></textarea>
+    </form>
+</div>
