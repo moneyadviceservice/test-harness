@@ -67,3 +67,10 @@ hr {
     width: 95%;
     height: 300px;
 }
+
+.highlight-text {
+    color: white;
+    background-color: blue;
+    padding: 0 0.5em;
+}
+

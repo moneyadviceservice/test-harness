@@ -1,2 +1,4 @@
 public_website_url: "https://www.moneyadviceservice.org.uk"
+qa_website_url: "https://qa.test.moneyadviceservice.org.uk"
+qa_partner_tools_url: "https://qa-partner-tools.test.moneyadviceservice.org.uk"
 development: false

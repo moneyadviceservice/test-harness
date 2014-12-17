@@ -1,76 +1,19 @@
 ---
+layout: default
 ---
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Money Advice Service</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="./css/application.css" rel="stylesheet">
-</head>
-<body>
-
 <div class='container'>
     <div class="masthead">
         <ul class="nav nav-pills pull-right">
             <li><a href="./index.html">Home</a></li>
-            <li><a class="active" href="./widgets.html">Widget</a></li>
+            <li class="active"><a href="./widgets.html">Widget</a></li>
+            <li><a href="./widgets-qa.html">Widget (QA view)</a></li>
         </ul>
         <h3 class="muted">Money Advice Service</h3>
     </div>
 
     <hr>
 
-    <div class='left' style="overflow: hidden;">
-        <!--<a id="auto_enrolment"-->
-           <!--class="mas-widget"-->
-           <!--target="_blank"-->
-           <!--href="http://www.moneyadviceservice.org.uk"-->
-           <!--data-width="100%">-->
-            <!--Universal Credit Timeline-->
-        <!--</a>-->
-    </div>
-    <div class='right'>
-        <form class="settings">
-            <section class="page">
-                <h3>Page settings</h3>
-                <div>
-                    <label for="container_width">Site width:</label>
-                    <input type="text" id="container_width" value="90%" />
-                </div>
-                <div>
-                    <label for="left_width">Left width (Min 360px):</label>
-                    <input type="text" id="left_width" value="70%" />
-                </div>
-                <div>
-                    <label for="right_width">Right width:</label>
-                    <input type="text" id="right_width" value="28%" />
-                </div>
-            </section>
-            <section class="tool">
-                <h4>Tool settings</h4>
-                <div>
-                    <label for="tool_id">Tool:</label>
-                    <select id="tool_id"><option>1</option></select>
-                </div>
-                <div>
-                    <label for="tool_width">Tool width:</label>
-                    <input type="text" id="tool_width" value="" />
-                </div>
-            </section>
-            <div>
-                <input type="submit" id="update" value="Update" />
-            </div>
-        </form>
-
-        <h3>Widget code:</h3>
-        <form class="widget">
-            <textarea id="widget_code" readonly="readonly"></textarea>
-        </form>
-    </div>
+    {% include widgets-main.html %}
 </div>
 
 {% if site.development == true %}
@@ -79,70 +22,9 @@
 
 <script class='application_scripts' src="{{site.public_website_url}}/assets/syndication/tools.js"></script>
 <script src="js/jquery.min.js"></script>
+<script src="js/widget_test_harness.js"></script>
 <script type="text/javascript">
-    (function(window, $) {
-        'use strict';
 
-        var syndication, removeWidget, createWidget, update, initialiseToolsDropdown;
-        var currentToolId, currentToolWidth;
+    widgetTestHarnessInit(this, jQuery, '{{site.public_website_url}}');
 
-        syndication = new window.PartnerMAS.ToolSyndication();
-
-        removeWidget = function() {
-            $('.mas-widget-container').remove();
-        };
-
-        createWidget = function (toolId, toolWidth) {
-            var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="{{site.public_website_url}}"';
-            if ('' !== toolWidth) {
-                aElement += ' data-width="' + toolWidth + '"';
-            }
-            aElement += '></a>';
-
-            $('.left').append(aElement);
-            syndication.renderWidgets()
-            $('#widget_code').text(aElement);
-        };
-
-        update = function() {
-            $('.settings .page :text').each(function() {
-                var container_class = $(this).attr('id').replace('_width', '');
-                $('.' + container_class).css('width', $(this).val());
-            });
-        };
-
-        initialiseToolsDropdown = function() {
-            var select = $('.settings .tool #tool_id');
-            select.find('option').remove();
-            $.each(masConfig.toolConfig, function(toolId, toolConfig) {
-                if ('default' !== toolId) {
-                    select.append('<option value="' + toolId + '">' + toolId + '</option>');
-                }
-            });
-        };
-
-        $('.settings').on('submit', function(e) {
-            var selectedToolId = $(this).find('#tool_id').val(),
-                toolWidth = $('.settings .tool #tool_width').val();
-
-            e.preventDefault();
-
-            update();
-
-            if ((selectedToolId !== currentToolId) ||
-                (toolWidth !== currentToolWidth)) {
-                currentToolId = selectedToolId;
-                currentToolWidth = toolWidth;
-
-                removeWidget();
-                createWidget(selectedToolId, toolWidth);
-            }
-        });
-
-        $(function() {
-            initialiseToolsDropdown();
-        });
-    })(this, jQuery);
 </script>
-</body>
-</html>
