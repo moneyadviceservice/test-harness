@@ -30,9 +30,12 @@ var widgetTestHarnessInit = function(window, $, websiteUrl) {
     };
 
     initialiseToolsDropdown = function() {
-        var select = $('.settings .tool #tool_id');
+        var select = $('.settings .tool #tool_id'),
+            sortedKeys = Object.keys(masConfig.toolConfig).sort();
+
         select.find('option').remove();
-        $.each(masConfig.toolConfig, function(toolId, toolConfig) {
+
+        $.each(sortedKeys, function(_, toolId) {
             if ('default' !== toolId) {
                 select.append('<option value="' + toolId + '">' + toolId + '</option>');
             }
