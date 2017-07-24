@@ -14,6 +14,9 @@ running the responsive public website and set `development` to `true`
 to always return `true` in public_website or responsive_site
 4. Run `bundle exec jekyll serve --watch`
 
+The test harness uses a key pointing to one of the partner tools. 
+In order to test a partner tool in the test environment, set the key to point to the relevant partner tool here: https://github.com/moneyadviceservice/test-harness/blob/gh-pages/_config.yml#L4
+
 Helpful Links
 -------------
 QA Website: https://qa.test.moneyadviceservice.org.uk
