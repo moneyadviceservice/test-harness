@@ -1,5 +1,5 @@
 public_website_url: "https://www.moneyadviceservice.org.uk"
-qa_website_url: 'https://cultivate.dev.mas.local'
-test_tools_js: 'https://mascdn.azureedge.net/frontend-cultivate'
-qa_partner_tools_url: 'https://cultivate-partner-tools.dev.mas.local'
+qa_website_url: 'https://preview.dev.mas.local'
+test_tools_js: 'https://mascdn.azureedge.net/frontend-preview'
+qa_partner_tools_url: 'https://preview-partner-tools.dev.mas.local'
 development: false
