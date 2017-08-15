@@ -14,17 +14,23 @@ running the responsive public website and set `development` to `true`
 to always return `true` in public_website or responsive_site
 4. Run `bundle exec jekyll serve --watch`
 
-The test harness uses a key pointing to one of the partner tools.
-In order to test a partner tool in the test environment, set the key to point to
-the relevant partner tool by changing the value of the `qa_partner_tools_url`
-here:
-https://github.com/moneyadviceservice/test-harness/blob/gh-pages/_config.yml#L4.
-The default value is set to `https://preview-partner-tools.dev.mas.local`.
 
-You may choose to make changes if you are using an alternative environment.
+Widget QA Setup
+-------------------
+The test harness uses a set of keys that point to the environment you want to use here:
+https://github.com/moneyadviceservice/test-harness/blob/gh-pages/_config.yml#L2-L4
 
+Generally this will follow the pattern below:
 ```
-# in file: gh-pages/_config.yml
+qa_website_url: 'https://<env>.dev.mas.local'
+test_tools_js: 'https://mascdn.azureedge.net/frontend-<env>'
+qa_partner_tools_url: 'https://<env>-partner-tools.dev.mas.local'
+```
+
+So for instance to point at the `preview` QA environment you would use the following config:
+```
+qa_website_url: 'http://preview.dev.mas.local'
+test_tools_js: 'https://mascdn.azureedge.net/frontend-preview'
 qa_partner_tools_url: 'https://preview-partner-tools.dev.mas.local'
 ```
 
