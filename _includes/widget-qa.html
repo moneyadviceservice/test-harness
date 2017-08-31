@@ -1,0 +1,23 @@
+<div class='container'>
+    <div class="masthead">
+      {% include menu.html %}
+      <h3 class="muted">Money Advice Service <span class="highlight-text">QA: {{page.env}}</span></h3>
+    </div>
+
+    <hr>
+
+    {% include widgets-main.html %}
+</div>
+
+<script class='application_scripts' src="{{page.tools}}/a/syndication/tools.js"></script>
+<script src="/js/widget_test_harness.js"></script>
+<script type="text/javascript">
+
+    // This forces tools.js to load the syndicated tool via the QA partner tools site
+    window.toolsConfig = {
+        'syndication_url': '{{page.partner}}'
+    };
+
+    widgetTestHarnessInit(this, jQuery, '{{page.site}}');
+
+</script>
