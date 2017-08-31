@@ -1,6 +1,13 @@
+---
+layout: default
+---
 <div class='container'>
     <div class="masthead">
-        {% include menu.html %}
+        <ul class="nav nav-pills pull-right">
+            <li><a href="./index.html">Home</a></li>
+            <li class="active"><a href="./widgets.html">Widget</a></li>
+            <li><a href="./widgets-qa.html">Widget (QA view)</a></li>
+        </ul>
         <h3 class="muted">Money Advice Service</h3>
     </div>
 
@@ -14,7 +21,8 @@
 {% endif %}
 
 <script class='application_scripts' src="{{site.public_website_url}}/assets/syndication/tools.js"></script>
-<script src="/js/widget_test_harness.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/widget_test_harness.js"></script>
 <script type="text/javascript">
 
     widgetTestHarnessInit(this, jQuery, '{{site.public_website_url}}');
