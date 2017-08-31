@@ -1,7 +1,7 @@
 <ul class="nav nav-pills pull-right">
-  <li><a href="/index.html">Home</a></li>
+  <li><a href="{{site.github.baseurl}}/index.html">Home</a></li>
   {% if site.development %}
-    <li><a href="/qa/production.html">Development</a></li>
+    <li><a href="{{site.github.baseurl}}/qa/production.html">Development</a></li>
   {% else %}
   <li class="dropdown">
     <a class="dropdown-toggle"
@@ -13,7 +13,7 @@
     <ul class="dropdown-menu">
       {% for page in site.pages %}
       {% if page.env %}
-         <li><a href="/qa/{{page.name}}">{{page.env}}</a></li>
+         <li><a href="{{site.github.baseurl}}/qa/{{page.name}}">{{page.env}}</a></li>
       {% endif %}
       {% endfor %}
     </ul>
