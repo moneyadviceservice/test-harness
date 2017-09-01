@@ -1,0 +1,22 @@
+<ul class="nav nav-pills pull-right">
+  <li><a href="{{site.github.baseurl}}/index.html">Home</a></li>
+  {% if site.development %}
+    <li><a href="{{site.github.baseurl}}/qa/production.html">Development</a></li>
+  {% else %}
+  <li class="dropdown">
+    <a class="dropdown-toggle"
+      data-toggle="dropdown"
+      href="#">
+      Widget QA
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      {% for page in site.pages %}
+      {% if page.env %}
+         <li><a href="{{site.github.baseurl}}/qa/{{page.name}}">{{page.env}}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </li>
+  {% endif %}
+</ul>

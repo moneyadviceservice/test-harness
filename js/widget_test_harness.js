@@ -2,7 +2,6 @@ var widgetTestHarnessInit = function(window, $, websiteUrl) {
     'use strict';
 
     var syndication, removeWidget, createWidget, update, initialiseToolsDropdown;
-    var currentToolId, currentToolWidth;
 
     syndication = new window.PartnerMAS.ToolSyndication();
 
@@ -10,8 +9,8 @@ var widgetTestHarnessInit = function(window, $, websiteUrl) {
         $('.mas-widget-container').remove();
     };
 
-    createWidget = function (toolId, toolWidth) {
-        var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" href="' + websiteUrl + '"';
+    createWidget = function (toolId, toolWidth, lang) {
+        var aElement = '<a id="' + toolId + '" class="mas-widget" target="_blank" lang="'+ lang +'" href="' + websiteUrl + '"';
         if ('' !== toolWidth) {
             aElement += ' data-width="' + toolWidth + '"';
         }
@@ -44,20 +43,13 @@ var widgetTestHarnessInit = function(window, $, websiteUrl) {
 
     $('.settings').on('submit', function(e) {
         var selectedToolId = $(this).find('#tool_id').val(),
+            selectedLang = $(this).find('#lang_id').val(),
             toolWidth = $('.settings .tool #tool_width').val();
 
         e.preventDefault();
-
         update();
-
-        if ((selectedToolId !== currentToolId) ||
-            (toolWidth !== currentToolWidth)) {
-            currentToolId = selectedToolId;
-            currentToolWidth = toolWidth;
-
-            removeWidget();
-            createWidget(selectedToolId, toolWidth);
-        }
+        removeWidget();
+        createWidget(selectedToolId, toolWidth, selectedLang);
     });
 
     $(function() {
