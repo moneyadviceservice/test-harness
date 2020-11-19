@@ -1,2 +1,2 @@
-public_website_url: "https://www.moneyadviceservice.org.uk"
-development: false
+public_website_url: "http://localhost:3000"
+development: true
