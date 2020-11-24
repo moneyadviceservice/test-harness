@@ -1,2 +1,3 @@
-public_website_url: "http://localhost:3000"
+public_website_url: "http://9dd6cac87755.ngrok.io"
+# public_website_url: "http://localhost:3000"
 development: true
